@@ -1,0 +1,17 @@
+{% filter indent(_indent + 4) %}
+
+{{name}} function
+{%- if args|length > 0 %}
+
+Args:
+    {%- for arg in args %}
+    {{ arg.arg }} ({{arg.annotation.id}}): TODO: to complete
+    {%- endfor %}
+{%- endif %}
+{%- if return_type %}
+
+Returns:
+    {{ return_type }}: TODO: to complete
+{%- endif %}
+{% endfilter %}
+{{ "" | indent(_indent + 4, blank=True, first=True) }}
