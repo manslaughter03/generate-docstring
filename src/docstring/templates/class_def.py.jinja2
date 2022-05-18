@@ -5,15 +5,15 @@
 
 Args:
     {%- for arg in args %}
-    {{ arg.arg }} ({{arg.annotation.id}}): TODO: to complete
+    {{ arg.name }} ({{arg.annotation}}): TODO: to complete
     {%- endfor %}
 {%- endif %}
 {%- if attributes|length > 0 %}
 
 Attributes:
     {%- for attr in attributes %}
-    {{ attr.target.id }} ({{attr.annotation.id}}): TODO: to complete
+    {{ attr.name }} ({{attr.annotation}}): TODO: to complete
     {%- endfor %}
 {%- endif %}
+
 {% endfilter %}
-{{ "" | indent(_indent + 4, blank=True, first=True) }}

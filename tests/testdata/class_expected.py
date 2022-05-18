@@ -3,6 +3,7 @@ Username module
 """
 import json
 
+
 class Username:
     """
 
@@ -26,6 +27,7 @@ class Username:
 
         """
         return json.dumps({'username': self.username, 'password': self.password})
+
 
 class Scope:
     """

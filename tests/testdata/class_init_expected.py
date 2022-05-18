@@ -3,6 +3,7 @@ Username module
 """
 import json
 
+
 class Username:
     """
 
@@ -13,7 +14,6 @@ class Username:
         password (str): TODO: to complete
 
     """
-
     def __init__(self, username: str, password: str):
         """
 

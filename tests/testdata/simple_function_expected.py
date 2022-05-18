@@ -1,7 +1,6 @@
 """
 Username module
 """
-
 def add(x: int, y: int) -> int:
     """
 

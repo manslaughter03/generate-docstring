@@ -1,7 +1,3 @@
-"""
-
-class_init
-"""
 import json
 
 
