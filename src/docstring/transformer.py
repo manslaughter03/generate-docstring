@@ -330,8 +330,10 @@ def generate_typing_str(annotation: Any) -> str:
         return annotation.value
     if isinstance(annotation, cst.Attribute):
         _namespace = [
-            annotation.value.value,
-            annotation.attr.value,
+            generate_typing_str(annotation.value.value),
+            generate_typing_str(annotation.attr.value),
         ]
         return ".".join(_namespace)
+    if isinstance(annotation, str):
+        return annotation
     raise Exception(f"Unkown type object {type(annotation)}")
