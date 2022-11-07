@@ -3,6 +3,7 @@ name = "docstring"
 version = "0.1.0"
 description = ""
 authors = ["manslaughter03 <manslaughter03@gmail.com>"]
+readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.7"
