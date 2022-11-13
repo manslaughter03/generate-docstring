@@ -7,8 +7,8 @@ from typing import Tuple
 import libcst as cst
 from jinja2 import Environment, PackageLoader, select_autoescape
 
-from docstring.transformer import DocstringTransformer, Templates
-from docstring.visitor import Visitor
+from generate_docstring.transformer import DocstringTransformer, Templates
+from generate_docstring.visitor import Visitor
 
 
 def parse(code: str, module_name: str) -> Tuple[cst.Module, cst.Module]:

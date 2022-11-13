@@ -7,7 +7,7 @@ import difflib
 import os
 from typing import Iterator
 
-from docstring import parse
+from generate_docstring import parse
 
 
 def generator_source(src: list) -> Iterator[str]:

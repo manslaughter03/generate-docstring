@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "docstring"
+name = "generate-docstring"
 version = "0.1.0"
 description = ""
 authors = ["manslaughter03 <manslaughter03@gmail.com>"]

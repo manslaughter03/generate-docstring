@@ -5,7 +5,7 @@ import sys
 from os.path import normpath, join
 import vim
 try:
-    from docstring import parse
+    from generate_docstring import parse
 except ModuleNotFoundError:
    print("Can't find docstring module")
    print("Please install with: pip install docstring")
