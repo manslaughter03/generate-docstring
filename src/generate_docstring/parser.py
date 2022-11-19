@@ -17,12 +17,11 @@ def parse(code: str, module_name: str) -> Tuple[cst.Module, cst.Module]:
     parse function
 
     Args:
-        code (str): TODO: to complete
-        module_name (str): TODO: to complete
-        override (bool): TODO: to complete
+        code (str): code string to parse
+        module_name (str): module name
 
     Returns:
-        str: TODO: to complete
+        Tuple[cst.Module, cst.Module]: return original tree and updated tree
 
     """
     tree = cst.parse_module(code)

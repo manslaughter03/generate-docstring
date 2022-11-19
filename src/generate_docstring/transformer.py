@@ -16,10 +16,10 @@ class DocstringTransformer(cst.CSTTransformer):
     DocstringTransformer class
 
     Args:
-        templates (Templates): TODO: to complete
-        indents_func (list): TODO: to complete
-        indents_class (list): TODO: to complete
-        module_name (str): TODO: to complete
+        templates (Templates): templates instance
+        indents_func (list): indents func list
+        indents_class (list): indents class list
+        module_name (str): module name
 
     """
 
@@ -36,12 +36,12 @@ class DocstringTransformer(cst.CSTTransformer):
         __init__ function
 
         Args:
-            templates (Templates): TODO: to complete
-            indents_func (list): TODO: to complete
-            indents_class (list): TODO: to complete
+            templates (Templates): templates instances
+            indents_func (list): indents func list
+            indents_class (list): indents class list
             raise (Dict[str, List[cst.Raise]]): raises with function name
                 as key and Raise instance as value
-            module_name (str): TODO: to complete
+            module_name (str): module name
 
         """
         cst.CSTTransformer.__init__(self)
@@ -59,11 +59,11 @@ class DocstringTransformer(cst.CSTTransformer):
         leave_ClassDef function
 
         Args:
-            original_node (cst.ClassDef): TODO: to complete
-            updated_node (cst.ClassDef): TODO: to complete
+            original_node (cst.ClassDef): original node
+            updated_node (cst.ClassDef): updated node after leaving
 
         Returns:
-            cst.ClassDef: TODO: to complete
+            cst.ClassDef: new class def
 
         """
         _indent = self._indents_class.pop(0)
@@ -156,11 +156,11 @@ class DocstringTransformer(cst.CSTTransformer):
         leave_Module function
 
         Args:
-            original_node (cst.Module): TODO: to complete
-            updated_node (cst.Module): TODO: to complete
+            original_node (cst.Module): original node
+            updated_node (cst.Module): node updated
 
         Returns:
-            cst.Module: TODO: to complete
+            cst.Module: node updated
 
         """
         #       return original_node.with_changes(has_trailing_newline=False)
@@ -215,11 +215,11 @@ class DocstringTransformer(cst.CSTTransformer):
         leave_FunctionDef function, callback on leave function
 
         Args:
-            original_node (cst.FunctionDef): TODO: to complete
-            updated_node (cst.FunctionDef): TODO: to complete
+            original_node (cst.FunctionDef): original function def
+            updated_node (cst.FunctionDef): function def updated
 
         Returns:
-            cst.FunctionDef: TODO: to complete
+            cst.FunctionDef: function def updated
 
         """
         found = False
@@ -289,13 +289,13 @@ def generate_typing_str(annotation: Any) -> str:
     generate_typing_str function
 
     Args:
-        annotation (Any): TODO: to complete
+        annotation (Any): annotation
 
     Raises:
-      Exception: TODO: to complete
+      Exception: Unkown annotation type
 
     Returns:
-        str: TODO: to complete
+        str: typing string
 
     """
     if isinstance(annotation, cst.Subscript):
@@ -334,6 +334,8 @@ def generate_typing_str(annotation: Any) -> str:
             generate_typing_str(annotation.attr.value),
         ]
         return ".".join(_namespace)
+    if isinstance(annotation, cst.SimpleString):
+        return annotation.value
     if isinstance(annotation, str):
         return annotation
     raise Exception(f"Unkown type object {type(annotation)}")

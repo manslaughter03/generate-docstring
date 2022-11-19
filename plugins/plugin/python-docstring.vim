@@ -7,8 +7,8 @@ import vim
 try:
     from generate_docstring import parse
 except ModuleNotFoundError:
-   print("Can't find docstring module")
-   print("Please install with: pip install docstring")
+   print("Can't find generate_docstring module")
+   print("Please install with: pip install generate_docstring")
 
 def set_buffer_content(buf, text):
     buf[:] = None

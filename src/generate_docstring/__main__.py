@@ -16,7 +16,7 @@ def generator_source(src: list) -> Iterator[str]:
     generator_source function
 
     Args:
-        src (list): TODO: to complete
+        src (list): list of file to iter
 
     """
     for item in src:

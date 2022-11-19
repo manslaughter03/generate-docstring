@@ -31,10 +31,10 @@ class Visitor(cst.CSTVisitor):
         on_visit function
 
         Args:
-            node (cst.FunctionDef): TODO: to complete
+            node (cst.FunctionDef): node to visit
 
         Returns:
-            cst.FunctionDef: TODO: to complete
+            bool: return always True
 
         """
         if isinstance(node, cst.IndentedBlock):
@@ -51,10 +51,7 @@ class Visitor(cst.CSTVisitor):
         on_leave function
 
         Args:
-            original_node (cst.FunctionDef): TODO: to complete
-
-        Returns:
-            cst.FunctionDef: TODO: to complete
+            original_node (cst.FunctionDef): node on leave
 
         """
         if isinstance(original_node, cst.IndentedBlock):
@@ -68,5 +65,12 @@ class Visitor(cst.CSTVisitor):
 #           _docstring = original_node.get_docstring()
 
     def visit_Raise_exc(self, node: cst.CSTNode):
+        """
+
+        visit_Raise_exc add raises to current function
+
+        Args:
+            node (cst.CSTNode): raise node
+        """
         if self.in_func:
             self.raises[self.current_function_name].append(node)
